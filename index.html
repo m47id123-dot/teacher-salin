@@ -1365,7 +1365,8 @@
 
             // Guard: cegah scan NIS sama dalam SCAN_COOLDOWN_MS detik
             if (normalizedNis === lastScannedNis && (now - lastScannedAt) < SCAN_COOLDOWN_MS) {
-                showToast('⚠️ Data Ganda Dicegah', 'error');
+                // Diabaikan secara diam-diam (silent ignore) agar kamera yang terus
+                // membaca QR tidak memunculkan spam notifikasi ganda.
                 return false;
             }
 
